@@ -49,7 +49,7 @@ module ActiveAdmin
       end
 
       if options.delete(:column_names) { true }
-        receiver << CSV.generate_line(columns.map{ |c| encode c.name, options }, options)
+        receiver << CSV.generate_line(columns.map{ |c| encode c.data, options }, options)
       end
 
       (1..paginated_collection.total_pages).each do |page_no|
